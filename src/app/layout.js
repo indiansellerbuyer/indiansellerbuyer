@@ -22,6 +22,8 @@ export default function RootLayout({ children }) {
   type="image/svg"
   sizes="16"
 />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3589128738879163"
+     crossorigin="anonymous"></script>
       </head>
       <body className={inter.className}>
         <MainLoader />
