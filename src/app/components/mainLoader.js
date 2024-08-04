@@ -8,7 +8,7 @@ const montserrat = Montserrat({
     weight: '400',
     style: "normal",
 });
-export default function mainLoader(){
+export default function MainLoader(){
 
         useEffect(() => {
           const loader = document.getElementById('Loader');
