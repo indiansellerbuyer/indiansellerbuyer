@@ -96,6 +96,23 @@
         .name{
             padding-top: 30px;
             text-align: center;
+            h1{
+
+            }
+            p{
+                position: fixed;
+                bottom: 30px;
+                display: flex;
+                vertical-align: middle;
+                align-items: center;
+                justify-content: center;
+                left: 0;
+                width: 100%;
+                img{
+                    margin:0 10px;
+                    border-radius: 5px;
+                }
+            }
         }
     }
 }
