@@ -1,0 +1,38 @@
+@import '../variable.scss';
+.footer{
+    background-color: $background_white;
+    box-shadow: $box_shadow;
+    position: relative;
+    z-index: 2;
+    .container{
+        .row{
+            display: flex;
+            vertical-align: middle;
+            align-items: center;
+            justify-content: space-between;
+            height: 2vw;
+            p{
+                margin: 0;
+                padding: 0;
+                display: flex;
+                vertical-align: middle;
+                align-items: center;
+                font-size: $font12;
+            }
+            .copyright{
+                p{
+
+                }
+            }
+            .makeinindia{
+                p{
+                    img{
+                        height: 1vw;
+                        width: initial;
+                        margin-right: 0.5vw;
+                    }
+                }
+            }
+        }
+    }
+}

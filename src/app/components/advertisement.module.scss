@@ -1,0 +1,111 @@
+@import '../variable.scss';
+    .singleadvertisement{
+        box-shadow: $box_shadow;
+        border-radius: 0.5vw;
+        padding: 0.75vw;
+        position: relative;
+        .image{
+            padding-bottom: 0.75vw;
+            img{
+                max-height: 13vw;
+                width: initial;
+                max-width: 100%;
+                display: block;
+                margin: auto;
+                }
+        }
+        .badges{
+            position: absolute;
+            top: 0.5vw;
+            left: 0.5vw;
+            ul{
+                list-style-type: none;
+                padding: 0;
+                li{
+                    padding: 4px 10px;
+                    background-color: $skyblue;
+                    color: $textwhite;
+                    border-radius: 0.25vw;
+                    margin-bottom: 0.25vw;
+                    font-size: $font14;
+                    display: flex;
+                    vertical-align: middle;
+                    align-items: center;
+                    svg{
+                        margin-right: 0.25vw;
+                    }
+                    &.urjent{
+                        background-color: #f00;
+                    }
+                }
+            }
+        }
+        .text{
+            .advertisementtitle{
+                margin-bottom: 1vw;
+                h3{
+                    font-size: $font16;
+                    font-weight: 500;
+                }
+            }
+            .feature{
+                margin-bottom: 1vw;
+                ul{
+                    display: flex;
+                    list-style-type: none;
+                    padding: 0;
+                    white-space: nowrap;
+                    overflow: auto;
+                    /* width */
+                    &::-webkit-scrollbar {
+                    width: 0px;
+                    height: 0px;
+                    }
+
+                    /* Track */
+                    &::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                    }
+
+                    /* Handle */
+                    &::-webkit-scrollbar-thumb {
+                    background: #888;
+                    }
+
+                    /* Handle on hover */
+                    &::-webkit-scrollbar-thumb:hover {
+                    background: #555;
+                    }
+                    li{
+                        text-transform: capitalize;
+                        background-color: #e6e6e6;
+                        padding: 0.25vw 1vw;
+                        border-radius: 0.25vw;
+                        margin-right: 0.5vw;
+                        font-size: $font14;
+                        span{
+                            display: block;
+                            font-size: $font14;
+                            &:first-child{
+                                font-size: $font12;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+            .adfooter{
+                display: flex;
+                vertical-align: middle;
+                align-items: center;
+                justify-content: space-between;
+                p{
+                    max-width: 50%;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    font-size: $font14;
+                }
+            }
+        }
+    }

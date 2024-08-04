@@ -1,95 +1,193 @@
+"use client"
+import style from "./page.module.scss";
+import { useEffect, useState } from "react";
+import DummyImage from "../../public/dummy.jpeg";
 import Image from "next/image";
-import styles from "./page.module.css";
+import { Montserrat } from "next/font/google";
+
+// Category
+import CategoryIcon from "../../public/category/category.png";
+import CarIcon from "../../public/category/car.png";
+import BikeIcon from "../../public/category/bike.png";
+import PropertiesIcon from "../../public/category/properties.png";
+import MobilesIcon from "../../public/category/mobiles.png";
+import JobsIcon from "../../public/category/jobs.png";
+import ElectronicsAndAppliancesIcon from "../../public/category/electronics-and-appliances.png";
+import DeliveryTruckIcon from "../../public/category/delivery-truck.png";
+import FurnitureIcon from "../../public/category/furniture.png";
+import FashionIcon from "../../public/category/fashion.png";
+import SportIcon from "../../public/category/sport.png";
+import PetsIcon from "../../public/category/pets.png";
+import ServicesIcon from "../../public/category/services.png";
+import SingleAdvertisement from "./components/advertisement";
+// Category
+
+const montserrat = Montserrat({
+    subsets: ["latin"],
+    display: "swap",
+    weight: '400',
+    style: "normal",
+});
+const montserrat600 = Montserrat({
+    subsets: ["latin"],
+    display: "swap",
+    weight: '600',
+    style: "normal",
+});
+const montserrat800 = Montserrat({
+    subsets: ["latin"],
+    display: "swap",
+    weight: '800',
+    style: "normal",
+});
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    const [advertisements, setAdvertisements] = useState([]);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+      const fetchAdvertisements = async () => {
+        try {
+          const response = await fetch('http://localhost:5000/advertisement');
+          const data = await response.json();
+          setAdvertisements(data);
+        } catch (error) {
+          console.error("Error fetching advertisements:", error);
+          setAdvertisements([]);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchAdvertisements();
+    }, []);
+  
+    if (loading) return <p>Loading...</p>;
+  
+    if (advertisements.length === 0) return <p>No Advertisement Found</p>;
+  
+    return (
+        <>
+                {/* Start Banner */}
+                <section className={`${style.banner}`}>
+                    <div className={`${style.container} ${style.box} container`}>
+                    </div>
+                </section>
+                {/* End Banner */}
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+                {/* Start Category */}
+                <section className={`${style.category}`}>
+                    <div className={`${style.container} container`}>
+                        <div className={`${style.title} title`}>
+                            <h2>Categories</h2>
+                        </div>
+                        <div className={`${style.categorylist} customscrollbar`}>
+                            <ul>
+                                <li title="category">
+                                    <a href="#">
+                                        <Image src={CategoryIcon} alt="category" />
+                                        <p>All Categories</p>
+                                    </a>
+                                </li>
+                                <li title="Car">
+                                    <a href="#">
+                                        <Image src={CarIcon} alt="Car" />
+                                        <p>Car</p>
+                                    </a>
+                                </li>
+                                <li title="Bike">
+                                    <a href="#">
+                                        <Image src={BikeIcon} alt="Bike" />
+                                        <p>Bike</p>
+                                    </a>
+                                </li>
+                                <li title="Properties">
+                                    <a href="#">
+                                        <Image src={PropertiesIcon} alt="Properties" />
+                                        <p>Properties</p>
+                                    </a>
+                                </li>
+                                <li title="Mobiles">
+                                    <a href="#">
+                                        <Image src={MobilesIcon} alt="Mobiles" />
+                                        <p>Mobiles</p>
+                                    </a>
+                                </li>
+                                <li title="Jobs">
+                                    <a href="#">
+                                        <Image src={JobsIcon} alt="Jobs" />
+                                        <p>Jobs</p>
+                                    </a>
+                                </li>
+                                <li title="Electronics And Appliances">
+                                    <a href="#">
+                                        <Image src={ElectronicsAndAppliancesIcon} alt="Electronics And Appliances" />
+                                        <p>Electronics &amp; Appliances</p>
+                                    </a>
+                                </li>
+                                <li title="DeliveryTruck">
+                                    <a href="#">
+                                        <Image src={DeliveryTruckIcon} alt="DeliveryTruck" />
+                                        <p>DeliveryTruck</p>
+                                    </a>
+                                </li>
+                                <li title="Furniture">
+                                    <a href="#">
+                                        <Image src={FurnitureIcon} alt="Furniture" />
+                                        <p>Furniture</p>
+                                    </a>
+                                </li>
+                                <li title="Fashion">
+                                    <a href="#">
+                                        <Image src={FashionIcon} alt="Fashion" />
+                                        <p>Fashion</p>
+                                    </a>
+                                </li>
+                                <li title="Sport">
+                                    <a href="#">
+                                        <Image src={SportIcon} alt="Sport" />
+                                        <p>Sport</p>
+                                    </a>
+                                </li>
+                                <li title="Pets">
+                                    <a href="#">
+                                        <Image src={PetsIcon} alt="Pets" />
+                                        <p>Pets</p>
+                                    </a>
+                                </li>
+                                <li title="Services">
+                                    <a href="#">
+                                        <Image src={ServicesIcon} alt="Services" />
+                                        <p>Services</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                {/* End Category */}
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+                {/* Start Paid Advertisement */}
+                <section className={`${style.advertisement}`}>
+                    <div className={`${style.container} container`}>
+                        <div className={`${style.title} title`}>
+                            <h2>Paid Advertisement</h2>
+                        </div>
+                        <div className={`${style.advertisementlist}`}>
+                            <div className={`${style.row} row`}>
+                                {advertisements.map((ad, index) => (
+                                    <>
+                                    <div key={index} className={`${style.col_md_3} col-md-3`}>
+                                        <SingleAdvertisement files1={ad.files1} brand={ad.  brand} ram={ad.ram} storage={ad.storage} title={ad.title} description={ad.description} nearby={ad.nearby} city={ad.city} state={ad.state} />
+                                    </div>
+                                    </>
+                                ))}
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {/* End Paid Advertisement */}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+        </>
+    )
 }

@@ -1,0 +1,101 @@
+@import '../variable.scss';
+.sellbutton{
+    position: fixed;
+    bottom: 2.5vw;
+    right: 1vw;
+    left: initial;
+    a{
+        border-radius: 10vw;
+        border: 0.4vw solid $orange;
+        border-top-color: $orange;
+        border-right-color: $skyblue;
+        border-bottom-color: $green;
+        border-left-color: $yellow;
+        outline: none;
+        width: 9vw;
+        display: flex;
+        vertical-align: middle;
+        align-items: center;
+        justify-content: center;
+        padding: 0.25vw;
+        font-weight: 600;
+        font-size: $font16;
+        box-shadow: $box_shadow ;
+        background-color: $background_white;
+        overflow: hidden;
+        img{
+            width: 2.5vw;
+            height: initial;
+            margin-right: 0.5vw;
+        }
+    }
+}
+.header{
+    box-shadow: 0 1px 7px rgba(0,0,0,.19);
+    // padding: 0.520833333vw 0;
+    line-height: 0;
+    position: relative;
+    z-index: 9;
+    .container{
+        .row{
+            vertical-align: middle;
+            align-items: center;
+            height: 4.5vw;
+            .logo{
+                a{
+                    display: flex;
+                    vertical-align: middle;
+                    align-items: center;
+                    img{
+                        width: 3.90879479vw;
+                        height: initial;
+                        padding-right: 0.78125vw;
+                    }
+                    h1{
+                        font-size: 1vw;
+                        color: $textblack;
+                    }
+                }
+            }
+            .location{
+                width: 13.02931595vw;
+                input{
+                    font-size: 0.833876221vw;
+                }
+            }
+            .search{
+                width: 26.0586319vw;
+                // opacity: 0;
+                transition: 0.5s;
+                &.show{
+                    opacity: 1;
+                    input{
+                        display: block;
+                    }
+                }
+                input{
+                    // display: none;
+                    transition: 0.5s;
+                }
+            }
+            .accessibility{
+                margin-left: auto;
+                ul{
+                    display: flex;
+                    vertical-align: middle;
+                    align-items: center;
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0 -1vw;
+                    li{
+                        padding: 0 1vw;
+                        img{
+                            width: 1.3vw;
+                            height: initial;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

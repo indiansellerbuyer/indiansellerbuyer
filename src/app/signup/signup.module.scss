@@ -1,0 +1,80 @@
+@import '../variable.scss';
+.loginpage{
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    .container{
+        width: 70vw;
+        min-height: 70vh;
+        background-color: $background_white;
+        border-radius: 1vw;
+        padding: 1vw;
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1px;
+            height: 90%;
+            transform: translate(-50% , -50%);
+            background-color: #0000003b;
+            z-index: 1;
+        }
+        .row{
+            vertical-align: middle;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            .col_md_6{
+                width: 50%;
+                .selflogin{
+                    .heading{
+                        margin-bottom: 3vw;
+                        h2{
+                            font-size: 3vw;
+                            color: $textblack;
+                        }
+                    }
+                    .selflogin{
+                        .singleinput{
+                            margin-bottom: 2vw;
+                            input{
+                                background-color: $inputcolor;
+                                font-size: $font14;
+                                width: 100%;
+                                height: 3.64820847vw;
+                            }
+                            label{
+                                margin-bottom: 0.45vw;
+                                display: block;
+                                font-weight: 600;
+                                font-size: 0.625vw;
+                            }
+                        }
+                        .themebutton{
+                            button{
+                                background-color: #a8ffd5;
+                                border-radius: 0;
+                            }
+                        }
+                    }
+                    .link{
+                        p{
+                            text-align: center;
+                        }
+                    }
+                }
+                .loginfreespace{
+                    .freespace{
+
+                    }
+                }
+            }
+            .col_md_12{
+                width: 100%;
+            }
+        }
+    }
+}
