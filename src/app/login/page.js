@@ -74,7 +74,7 @@ export default function Page() {
                                     {error && <p style={{ color: 'red' }}>{error}</p>}
                                 </div>
                                 <div className={style.link}>
-                                    <p>Don't have an account? <Link href="/signup">Sign up</Link></p>
+                                    <p>Don&apos;t have an account? <Link href="/signup">Sign up</Link></p>
                                 </div>
                             </div>
                         </div>
