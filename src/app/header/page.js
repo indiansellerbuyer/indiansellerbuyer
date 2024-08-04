@@ -13,6 +13,7 @@ import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import ProfileButton from "../components/profileButton";
 import SellButton from "../components/sellButton";
+import MainLoader from "../components/mainLoader";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function Page() {
     return (
         <>
             <SellButton />
+            <MainLoader />
             <header className={`${montserrat.className} ${style.header}`}>
                 <div className={`${style.container} container`}>
                     <div className={`${style.row} row`}>
