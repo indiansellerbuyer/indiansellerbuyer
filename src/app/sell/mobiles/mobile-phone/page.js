@@ -41,7 +41,7 @@ export default function Page() {
         formData.append("nearby", nearby);
         if (files1) formData.append("files1", files1);
         if (files2) formData.append("files2", files2);
-        if (files3) formData.append("files3", files3);
+        // if (files3) formData.append("files3", files3);
 
         try {
             let result = await fetch('http://localhost:5000/sell/mobiles/mobile-phone', {

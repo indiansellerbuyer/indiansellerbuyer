@@ -1,11 +1,10 @@
-"use client"
+"use client";
 import style from "./page.module.scss";
 import { useEffect, useState } from "react";
-import DummyImage from "../../public/dummy.jpeg";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 
-// Category
+// Category Icons
 import CategoryIcon from "../../public/category/category.png";
 import CarIcon from "../../public/category/car.png";
 import BikeIcon from "../../public/category/bike.png";
@@ -20,8 +19,8 @@ import SportIcon from "../../public/category/sport.png";
 import PetsIcon from "../../public/category/pets.png";
 import ServicesIcon from "../../public/category/services.png";
 import SingleAdvertisement from "./components/advertisement";
-// Category
 
+// Font imports
 const montserrat = Montserrat({
     subsets: ["latin"],
     display: "swap",
@@ -44,150 +43,100 @@ const montserrat800 = Montserrat({
 export default function Home() {
     const [advertisements, setAdvertisements] = useState([]);
     const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-      const fetchAdvertisements = async () => {
-        try {
-          const response = await fetch('http://localhost:5000/advertisement');
-          const data = await response.json();
-          setAdvertisements(data);
-        } catch (error) {
-          console.error("Error fetching advertisements:", error);
-          setAdvertisements([]);
-        } finally {
-          setLoading(false);
-        }
-      };
-  
-      fetchAdvertisements();
+        const fetchAdvertisements = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/advertisement');
+                const data = await response.json();
+                setAdvertisements(data);
+            } catch (error) {
+                console.error("Error fetching advertisements:", error);
+                setAdvertisements([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchAdvertisements();
     }, []);
-  
+
     if (loading) return <p>Loading...</p>;
-  
     if (advertisements.length === 0) return <p>No Advertisement Found</p>;
-  
+    console.log(advertisements);    
+
     return (
         <>
-                {/* Start Banner */}
-                <section className={`${style.banner}`}>
-                    <div className={`${style.container} ${style.box} container`}>
-                    </div>
-                </section>
-                {/* End Banner */}
+            {/* Start Banner */}
+            <section className={`${style.banner}`}>
+                <div className={`${style.container} ${style.box} container`}></div>
+            </section>
+            {/* End Banner */}
 
-                {/* Start Category */}
-                <section className={`${style.category}`}>
-                    <div className={`${style.container} container`}>
-                        <div className={`${style.title} title`}>
-                            <h2>Categories</h2>
-                        </div>
-                        <div className={`${style.categorylist} customscrollbar`}>
-                            <ul>
-                                <li title="category">
+            {/* Start Category */}
+            <section className={`${style.category}`}>
+                <div className={`${style.container} container`}>
+                    <div className={`${style.title} title`}>
+                        <h2>Categories</h2>
+                    </div>
+                    <div className={`${style.categorylist} customscrollbar`}>
+                        <ul>
+                            {[
+                                { icon: CategoryIcon, label: "All Categories" },
+                                { icon: CarIcon, label: "Car" },
+                                { icon: BikeIcon, label: "Bike" },
+                                { icon: PropertiesIcon, label: "Properties" },
+                                { icon: MobilesIcon, label: "Mobiles" },
+                                { icon: JobsIcon, label: "Jobs" },
+                                { icon: ElectronicsAndAppliancesIcon, label: "Electronics & Appliances" },
+                                { icon: DeliveryTruckIcon, label: "DeliveryTruck" },
+                                { icon: FurnitureIcon, label: "Furniture" },
+                                { icon: FashionIcon, label: "Fashion" },
+                                { icon: SportIcon, label: "Sport" },
+                                { icon: PetsIcon, label: "Pets" },
+                                { icon: ServicesIcon, label: "Services" },
+                            ].map((category, index) => (
+                                <li key={index} title={category.label}>
                                     <a href="#">
-                                        <Image src={CategoryIcon} alt="category" />
-                                        <p>All Categories</p>
+                                        <Image src={category.icon} alt={category.label} />
+                                        <p>{category.label}</p>
                                     </a>
                                 </li>
-                                <li title="Car">
-                                    <a href="#">
-                                        <Image src={CarIcon} alt="Car" />
-                                        <p>Car</p>
-                                    </a>
-                                </li>
-                                <li title="Bike">
-                                    <a href="#">
-                                        <Image src={BikeIcon} alt="Bike" />
-                                        <p>Bike</p>
-                                    </a>
-                                </li>
-                                <li title="Properties">
-                                    <a href="#">
-                                        <Image src={PropertiesIcon} alt="Properties" />
-                                        <p>Properties</p>
-                                    </a>
-                                </li>
-                                <li title="Mobiles">
-                                    <a href="#">
-                                        <Image src={MobilesIcon} alt="Mobiles" />
-                                        <p>Mobiles</p>
-                                    </a>
-                                </li>
-                                <li title="Jobs">
-                                    <a href="#">
-                                        <Image src={JobsIcon} alt="Jobs" />
-                                        <p>Jobs</p>
-                                    </a>
-                                </li>
-                                <li title="Electronics And Appliances">
-                                    <a href="#">
-                                        <Image src={ElectronicsAndAppliancesIcon} alt="Electronics And Appliances" />
-                                        <p>Electronics &amp; Appliances</p>
-                                    </a>
-                                </li>
-                                <li title="DeliveryTruck">
-                                    <a href="#">
-                                        <Image src={DeliveryTruckIcon} alt="DeliveryTruck" />
-                                        <p>DeliveryTruck</p>
-                                    </a>
-                                </li>
-                                <li title="Furniture">
-                                    <a href="#">
-                                        <Image src={FurnitureIcon} alt="Furniture" />
-                                        <p>Furniture</p>
-                                    </a>
-                                </li>
-                                <li title="Fashion">
-                                    <a href="#">
-                                        <Image src={FashionIcon} alt="Fashion" />
-                                        <p>Fashion</p>
-                                    </a>
-                                </li>
-                                <li title="Sport">
-                                    <a href="#">
-                                        <Image src={SportIcon} alt="Sport" />
-                                        <p>Sport</p>
-                                    </a>
-                                </li>
-                                <li title="Pets">
-                                    <a href="#">
-                                        <Image src={PetsIcon} alt="Pets" />
-                                        <p>Pets</p>
-                                    </a>
-                                </li>
-                                <li title="Services">
-                                    <a href="#">
-                                        <Image src={ServicesIcon} alt="Services" />
-                                        <p>Services</p>
-                                    </a>
-                                </li>
-                            </ul>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            {/* End Category */}
+
+            {/* Start Paid Advertisement */}
+            <section className={`${style.advertisement}`}>
+                <div className={`${style.container} container`}>
+                    <div className={`${style.title} title`}>
+                        <h2>Paid Advertisement</h2>
+                    </div>
+                    <div className={`${style.advertisementlist}`}>
+                        <div className={`${style.row} row`}>
+                            {advertisements.map((ad, index) => (
+                                <div key={index} className={`${style.col_md_3} col-md-3`}>
+                                    <SingleAdvertisement
+                                        files1={ad.files1}
+                                        brand={ad.brand}
+                                        ram={ad.ram}
+                                        storage={ad.storage}
+                                        title={ad.title}
+                                        description={ad.description}
+                                        nearby={ad.nearby}
+                                        city={ad.city}
+                                        state={ad.state}
+                                    />
+                                </div>
+                            ))}
                         </div>
                     </div>
-                </section>
-                {/* End Category */}
-
-                {/* Start Paid Advertisement */}
-                <section className={`${style.advertisement}`}>
-                    <div className={`${style.container} container`}>
-                        <div className={`${style.title} title`}>
-                            <h2>Paid Advertisement</h2>
-                        </div>
-                        <div className={`${style.advertisementlist}`}>
-                            <div className={`${style.row} row`}>
-                                {advertisements.map((ad, index) => (
-                                    <>
-                                    <div key={index} className={`${style.col_md_3} col-md-3`}>
-                                        <SingleAdvertisement files1={ad.files1} brand={ad.  brand} ram={ad.ram} storage={ad.storage} title={ad.title} description={ad.description} nearby={ad.nearby} city={ad.city} state={ad.state} />
-                                    </div>
-                                    </>
-                                ))}
-                                
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                {/* End Paid Advertisement */}
-
+                </div>
+            </section>
+            {/* End Paid Advertisement */}
         </>
-    )
+    );
 }

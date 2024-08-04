@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['localhost'], // Add other domains here if needed
+        domains: ['localhost' , 'indiansellerbuyer-database.vercel.app'], // Add other domains here if needed
     },
 };
 

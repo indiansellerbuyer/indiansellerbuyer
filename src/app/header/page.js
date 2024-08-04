@@ -38,7 +38,7 @@ export default function Page() {
     return (
         <>
             <SellButton />
-            <MainLoader />
+            {/* <MainLoader /> */}
             <header className={`${montserrat.className} ${style.header}`}>
                 <div className={`${style.container} container`}>
                     <div className={`${style.row} row`}>

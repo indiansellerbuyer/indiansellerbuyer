@@ -3,6 +3,7 @@ import "./globals.scss";
 import TopHeader from "./header/page"
 import Footer from "./footer/page"
 import Logo from "../../public/logo.svg";
+import MainLoader from "./components/mainLoader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
 />
       </head>
       <body className={inter.className}>
+        <MainLoader />
         <TopHeader />
           <main className={`main`}>{children}</main>
         <Footer />
