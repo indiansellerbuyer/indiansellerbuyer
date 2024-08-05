@@ -51,6 +51,7 @@ export default function Page() {
         <>
                 {/* Start Banner */}
                 <section className={`${style.banner}`}>
+                    <p>{isLogin ? '/sell' : '/login'}</p>
                     <div className={`${style.container} ${style.box} container`}>
                     </div>
                 </section>

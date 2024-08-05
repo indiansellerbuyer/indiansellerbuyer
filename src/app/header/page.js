@@ -7,9 +7,6 @@ import SettingIcon from "../../../public/setting.svg";
 import ProfileIcon from "../../../public/profile.svg";
 import Image from "next/image";
 import Link from "next/link";
-
- 
-
 import { Montserrat } from "next/font/google";
 import ProfileButton from "../components/profileButton";
 import SellButton from "../components/sellButton";

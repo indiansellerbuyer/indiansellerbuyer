@@ -1,7 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.scss";
-import TopHeader from "./header/page"
-import Footer from "./footer/page"
 import Logo from "../../public/logo.svg";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,11 +22,7 @@ export default function RootLayout({ children }) {
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3589128738879163"
      crossorigin="anonymous"></script>
       </head>
-      <body className={inter.className}>
-        <TopHeader />
-          <main className={`main`}>{children}</main>
-        <Footer />
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

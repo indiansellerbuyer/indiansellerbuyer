@@ -17,16 +17,25 @@ export default function MainLoader() {
     const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
+      // Check if 'loader' is stored in sessionStorage
+      const loaderStatus = sessionStorage.getItem('loader');
+  
+      if (loaderStatus === 'true') {
+        setIsVisible(false); // Hide loader if 'loader' is 'true'
+      } else {
+        // Set a timer to hide the loader after 1100ms and store 'true' in sessionStorage
         const timer = setTimeout(() => {
-            setIsVisible(false);
-            sessionStorage.setItem('loader', 'true'); // Ensure 'true' is stored as a string
+          setIsVisible(false);
+          sessionStorage.setItem('loader', 'true'); // Store 'true' as a string
         }, 1100);
-
-        return () => clearTimeout(timer); // Cleanup timer if component unmounts
+  
+        // Cleanup the timer if the component unmounts
+        return () => clearTimeout(timer);
+      }
     }, []);
-
+  
     if (!isVisible) return null; // Render nothing if loader is hidden
-
+  
     return (
         <>
         {isVisible ? 
