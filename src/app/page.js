@@ -113,7 +113,7 @@ export default function Home() {
             <section className={`${style.advertisement}`}>
                 <div className={`${style.container} container`}>
                     <div className={`${style.title} title`}>
-                        <h2>Paid Advertisement</h2>
+                        <h2>Paid Advertisements</h2>
                     </div>
                     <div className={`${style.advertisementlist}`}>
                         <div className={`${style.row} row`}>
