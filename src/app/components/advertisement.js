@@ -9,7 +9,7 @@ export default function SingleAdvertisement({files1, title, price, type, brand, 
 
             <div className={`${style.singleadvertisement}`}>
                 <div className={`${style.image}`}>
-                    <Image src={`http://localhost:5000/${files1}`} width={100} height={100} alt="Advertisement Image" />
+                    <Image src={`https://indiansellerbuyer-database.vercel.app/${files1}`} width={100} height={100} alt="Advertisement Image" />
                 </div>
                 <div className={`${style.badges}`}>
                     <ul>

@@ -57,7 +57,7 @@ export default function SellForm({ category }) {
             return;
         }
         else{
-        let result = await fetch('http://localhost:5000/advertisement', {
+        let result = await fetch('https://indiansellerbuyer-database.vercel.app/advertisement', {
             method: 'post',
             body: JSON.stringify({ type, title, description, price, state, city, nearby }),
             headers: {

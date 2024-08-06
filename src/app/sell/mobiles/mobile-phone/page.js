@@ -44,7 +44,7 @@ export default function Page() {
         // if (files3) formData.append("files3", files3);
 
         try {
-            let result = await fetch('http://localhost:5000/sell/mobiles/mobile-phone', {
+            let result = await fetch('https://indiansellerbuyer-database.vercel.app/sell/mobiles/mobile-phone', {
                 method: 'POST',
                 body: formData,
             });

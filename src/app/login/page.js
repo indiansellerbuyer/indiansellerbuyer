@@ -13,7 +13,7 @@ export default function Page() {
     const handleLogin = async () => {
         setError(null); // Reset error before login attempt
         try {
-            let result = await fetch('http://localhost:5000/login', {
+            let result = await fetch('https://indiansellerbuyer-database.vercel.app/login', {
                 method: 'post',
                 body: JSON.stringify({ username, password }),
                 headers: {

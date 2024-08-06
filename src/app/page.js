@@ -50,7 +50,7 @@ export default function Home() {
     useEffect(() => {
         const fetchAdvertisements = async () => {
             try {
-                const response = await fetch('http://localhost:5000/advertisement');
+                const response = await fetch('https://indiansellerbuyer-database.vercel.app/advertisement');
                 const data = await response.json();
                 setAdvertisements(data);
             } catch (error) {
